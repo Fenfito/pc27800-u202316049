@@ -5,7 +5,6 @@ import com.jefferson.center.platform.andes.application.commandservices.CreateDel
 import com.jefferson.center.platform.andes.domain.model.aggregates.DeliveryOrder;
 import com.jefferson.center.platform.andes.interfaces.rest.resources.CreateDeliveryOrderResource;
 import com.jefferson.center.platform.andes.interfaces.rest.resources.DeliveryOrderResource;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +22,7 @@ public class DeliveryOrdersController {
     }
 
     @PostMapping
-    public ResponseEntity<DeliveryOrderResource> create(@Valid @RequestBody CreateDeliveryOrderResource resource) {
+    public ResponseEntity<DeliveryOrderResource> create(@RequestBody CreateDeliveryOrderResource resource) {
         CreateDeliveryOrderCommand command = new CreateDeliveryOrderCommand(
                 resource.deliveryCode(),
                 resource.warehouseId(),
