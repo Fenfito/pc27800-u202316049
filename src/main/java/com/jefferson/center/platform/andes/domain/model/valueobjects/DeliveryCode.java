@@ -6,4 +6,8 @@ public record DeliveryCode(String deliveryCode) {
             throw new IllegalArgumentException("Delivery code cannot be null or blank");
         }
     }
+
+    public String value() {
+        return deliveryCode;
+    }
 }
